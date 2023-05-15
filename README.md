@@ -61,9 +61,15 @@ sudo docker cp ./bin/flight*.py docker_spark-worker_1:/opt/bitnami/spark
 
 When all the services all started successfully, then go to -
 http://localhost:8080/ to check that Airflow
+
+
 http://localhost:8090/ that Spark is up and running. 
+
+![alt text](https://github.com/PALAK0008/DP_Assignment_PalakAgarwal/blob/main/images/spark_cluster_running.jpg?raw=true)
+
 http://localhost:15432/ to check Postgres GUI
 
+![alt text](https://github.com/PALAK0008/DP_Assignment_PalakAgarwal/blob/main/images/postgres_running.jpg?raw=true)
 
 * Run the Spark jobs with below command - 
 
