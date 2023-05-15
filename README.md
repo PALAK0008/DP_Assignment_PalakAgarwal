@@ -32,17 +32,17 @@ git clone https://github.com/PALAK0008/DP_Assignment_PalakAgarwal.git
 
 ## Build the Spark image.
 ```bash
-docker build -f /docker/Dockerfile.Spark . -t spark-air
+docker build -f ./docker/Dockerfile.Spark . -t spark-air
 ```
 
 ## Build the Airflow image.
 ```bash
-docker build -f /docker/Dockerfile.Airflow . -t airflow-spark
+docker build -f ./docker/Dockerfile.Airflow . -t airflow-spark
 ```
 
 ## Start and run the Spark and Airflow containers.
 ```bash
-docker-compose -f /docker/docker-compose.Spark.yaml -f /docker/docker-compose.Airflow.yaml -d
+docker-compose -f ./docker/docker-compose.Spark.yaml -f ./docker/docker-compose.Airflow.yaml -d
 ```
 When all the services all started successfully, then go to -
 http://localhost:8080/ to check that Airflow
