@@ -47,6 +47,18 @@ sudo chmod -R 777 *
 ```bash
 sudo docker-compose -f ./docker/docker-compose.Spark.yaml -f ./docker/docker-compose.Airflow.yaml up -d
 ```
+
+### Create Airflow user-
+```bash
+sudo docker exec -it docker_airflow-webserver_1 airflow users create --username admin  --firstname Peter  --lastname Parker --role Admin  --password admin --email spiderman@superhero.org
+```
+
+### Copy files to Spark-
+```bash
+sudo docker cp ./jars/postgresql-42.2.5.jar docker_spark-worker_1:/opt/bitnami/spark/jars
+sudo docker cp ./bin/flight*.py docker_spark-worker_1:/opt/bitnami/spark
+```
+
 When all the services all started successfully, then go to -
 http://localhost:8080/ to check that Airflow
 http://localhost:8090/ that Spark is up and running. 
@@ -59,6 +71,12 @@ http://localhost:15432/ to check Postgres GUI
 sudo docker exec -it <Spark-Worker-Contianer-name> \
     spark-submit --master spark://XXXXXXXXXXXXXX:7077 \
     spark_etl_script_docker.py
+```
+
+```bash
+sudo docker exec -it docker_spark-worker_1 \
+spark-submit --master spark://b429c6dd34b5:7077 \
+/opt/bitnami/spark/flight_count.py
 ```
 
 * if successful, the schedule the spark jobs in Airflow
