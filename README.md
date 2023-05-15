@@ -3,6 +3,10 @@ This project contains data pipeline. Schiphol flight dataset is used for impleme
     - Csvs are read in the dataframes which are transformed according to scenario.
     - Finally transformed data is stored in postgres tables.
 
+## Flow Diagram -
+
+![alt text](https://github.com/PALAK0008/DP_Assignment_PalakAgarwal/blob/main/images/flow_diagram.jpg?raw=true)
+
 ## Scenarios covered -
 
 Scenario 1 - show the flights which are arrived by the delay of 10 seconds from their actual landing time
@@ -28,17 +32,17 @@ git clone https://github.com/PALAK0008/DP_Assignment_PalakAgarwal.git
 
 ## Build the Spark image.
 ```bash
-docker build -f Dockerfile.Spark . -t spark-air
+docker build -f /docker/Dockerfile.Spark . -t spark-air
 ```
 
 ## Build the Airflow image.
 ```bash
-docker build -f Dockerfile.Airflow . -t airflow-spark
+docker build -f /docker/Dockerfile.Airflow . -t airflow-spark
 ```
 
 ## Start and run the Spark and Airflow containers.
 ```bash
-docker-compose -f docker-compose.Spark.yaml -f docker-compose.Airflow.yaml -d
+docker-compose -f /docker/docker-compose.Spark.yaml -f /docker/docker-compose.Airflow.yaml -d
 ```
 When all the services all started successfully, then go to -
 http://localhost:8080/ to check that Airflow
