@@ -39,7 +39,10 @@ sudo docker build -f ./docker/Dockerfile.Spark . -t spark-air
 ```bash
 sudo docker build -f ./docker/Dockerfile.Airflow . -t airflow-spark
 ```
-
+### Provide access to all folders.
+``` bash
+sudo chmod -R 777 *
+```
 ## Start and run the Spark and Airflow containers.
 ```bash
 sudo docker-compose -f ./docker/docker-compose.Spark.yaml -f ./docker/docker-compose.Airflow.yaml up -d
