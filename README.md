@@ -32,17 +32,17 @@ git clone https://github.com/PALAK0008/DP_Assignment_PalakAgarwal.git
 
 ## Build the Spark image.
 ```bash
-docker build -f ./docker/Dockerfile.Spark . -t spark-air
+sudo docker build -f ./docker/Dockerfile.Spark . -t spark-air
 ```
 
 ## Build the Airflow image.
 ```bash
-docker build -f ./docker/Dockerfile.Airflow . -t airflow-spark
+sudo docker build -f ./docker/Dockerfile.Airflow . -t airflow-spark
 ```
 
 ## Start and run the Spark and Airflow containers.
 ```bash
-docker-compose -f ./docker/docker-compose.Spark.yaml -f ./docker/docker-compose.Airflow.yaml -d
+sudo docker-compose -f ./docker/docker-compose.Spark.yaml -f ./docker/docker-compose.Airflow.yaml up -d
 ```
 When all the services all started successfully, then go to -
 http://localhost:8080/ to check that Airflow
@@ -53,7 +53,7 @@ http://localhost:15432/ to check Postgres GUI
 * Run the Spark jobs with below command - 
 
 ```bash
-docker exec -it <Spark-Worker-Contianer-name> \
+sudo docker exec -it <Spark-Worker-Contianer-name> \
     spark-submit --master spark://XXXXXXXXXXXXXX:7077 \
     spark_etl_script_docker.py
 ```
